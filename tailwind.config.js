@@ -5,7 +5,11 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      rotate: {
+        '360': '360deg',
+      },
+    },
   },
   plugins: [
       require('flowbite/plugin')
