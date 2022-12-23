@@ -1,12 +1,12 @@
-import "./App.css";
+import "../App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Spinner, Button } from "flowbite-react";
+import Loading from "./Loading";
 
 
 const api = "http://localhost:8000/api/article/2"
 const config = {
-    headers: {Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NjkyMTQ0NTAsImV4cCI6MTY3MTYzMzY1MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1VQRVJfQURNSU4iXSwidXNlcm5hbWUiOiJjZCJ9.Pkveovrcivhdw0Fcgh7PO3tOo7VRMZaR7nghF56C5Bv4CA9Sv0IbtkS3XYb28COpsueRC4MJ4B1LV8vtEX9JKCye5jJNG_dbSjVSNwbF-f3Ob19tLy1mLUSP3zmLACAdl48Unwgw-O4K4iUmvPh980kH_PqErtOEUJdXxsoMhqI88T0P5CMFEC_z4RDVSW9X7L02nYJMiHdnIHOIGCXuqJc9pr2BgLaapNJ6_72NYY9TrBEeTiZMSyM6plmWN3i1e7sxbUJkL6I2TwZgso6FaR58Ep0g6lmBzttiY1IPL28S3hIByJblFUTKrtfVaRRC8uKMPh8QIci9Zpr3H4-DGzR9mI5vNDTYmcBLN6dirqeQZm8LcPz6VgwjxhBQPoBdqWL4jZFnnpIG3iSPtpi16umKYIL4D_-x39TOp6lLt-DqTEufDnY97JlIhTE0OUSUPEm5jZ-3D-2nTyIWaw_Gh7p2S8mN6qtKWPDNJKTekj9V9yiLHS7FhDkzWmI5YYCvbG1g8xFsoi1vjerT-ifXtBvyth2xGjdr7GKhx2V1OdXBhMj9gvjJ8J1Nxlkx4o9JoVER1trje9zO08qYY_o5WqaIxw6KKQvnUBFHgjRfp3x09nrV238zwir0EBfBINXoR8BB8EGcmoYWDZlhJVUqUumd_j2GsYYog_O4O9E5_so`}
+    headers: {Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NzE3ODUzMDcsImV4cCI6MTY3NDIwNDUwNywicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1VQRVJfQURNSU4iXSwidXNlcm5hbWUiOiJjZCJ9.j3RnE_ObqCg0e9OgF4Y7n7oVZehMEufcdWHweK_sPcM_zsr4QWESChPFd7N0Q_ZClvRGIn-5GITUz0RcAIdBUQm6VFhWouSWOc7bBCJ1xRyTkSGM5ahpFJjzjpJwZNhBBkrJ4Uv7ssMeQvQMjcrcFbJb_9FDEo6-C637gNcvNhEIW_pRTZGVsOc3kalRDFr25hI4WHbQJ2YSByEj51tPd-HkfalQIqgNBYjArKSxj-0v82_-o0B6aArEGqtj7atkSG7tyVBq0Ptxm3RBKGr04ldou5T764_RJgkKDpSZoGN2joq-SRkZG6BmghFCEUEXn1aPEc2-kHT_OYFK7SCDDC75awuAj9QglJhdLjQjxLzo4WJLCRwmboSxQW4kv638bLUlVZtADLWBG6YfiTj-0qsY1RezWMG5N239i_7SBdlzfGJrG9fxfXQzjry6ce-DtrY8KO6DUtJMlprUXD3XiGPWlcBwC2V5A4R4tKT55vEA91cLA1Fx9Do_kH_nNsNybDCWQ8jZfN96mShKkZYR55Bt-RuoiHE72AIoxG87nA_emgRJ199Zco8dGc9ZFqEVCNU2NTXFBgwe174Ct6KXUN5hUu7UoIjQnFOx5UwAxNlr80Ff3XwJ0yL-NPuhhxUNULvAycPMAfE14CpSrGbM2vjzn4QmbuGSibFfB-yQkbI`}
 };
 
 function App() {
@@ -31,14 +31,7 @@ function App() {
     }, []);
 
     if (isLoading) {
-        return <div className="App-header">
-            <Button>
-                <Spinner color="success" size="xl" aria-label="Spinner button example"/>
-                <span className="pl-3">
-      Chargement des données
-    </span>
-            </Button>
-        </div>;
+        return(<Loading />);
     } else {
         return (
             <div className="App">
